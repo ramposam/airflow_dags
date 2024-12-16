@@ -1,10 +1,11 @@
 from datetime import datetime
 from airflow import DAG
+from airflow.operators.empty import EmptyOperator
+
 from operators.download_operator import DownloadOperator
 from operators.acquisition_operator import AcquisitionOperator
 from operators.load_operator import LoadOperator
 from operators.snowflake_copy_operator import SnowflakeCopyOperator
-from airflow.operators.empty import EmptyOperator
 
 from datetime import datetime
 
