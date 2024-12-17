@@ -44,7 +44,7 @@ with DAG(
             task_id="s3_file_check",
             s3_conn_id="S3_CONN_ID",
             bucket_name="rposam-devops-airflow",
-            dataset_dir="/datasets/csse_covid_19_daily_reports",
+            dataset_dir="datasets/csse_covid_19_daily_reports",
             file_pattern="datetime_pattern.csv",
             datetime_pattern="%m-%d-%Y"
         ) 
@@ -53,7 +53,7 @@ with DAG(
             task_id="download_file_from_s3",
             s3_conn_id="S3_CONN_ID",
             bucket_name="rposam-devops-airflow",
-            dataset_dir="/datasets/csse_covid_19_daily_reports",
+            dataset_dir="datasets/csse_covid_19_daily_reports",
             file_name="datetime_pattern.csv",
             datetime_pattern="%m-%d-%Y"
         )
