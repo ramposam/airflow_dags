@@ -1,0 +1,65 @@
+
+cd ~
+scp -i ./Downloads/rposam-devops-kp.pem -r "C:\Users\Asus\Downloads\generated_configs\generated_dags_ddls\csse_covid_19_daily_reports_dag.py" ubuntu@54.215.50.117:/home/ubuntu/
+
+scp -i ./Downloads/rposam-devops-kp.pem -r "C:\Users\Asus\PycharmProjects\custom_utils\dist\core_utils-1.0.0-py3-none-any.whl" ubuntu@54.215.50.117:/home/ubuntu/
+
+scp -i ./Downloads/rposam-devops-kp.pem -r "C:\Users\Asus\PycharmProjects\custom_operators\dist\custom_operators-1.0.0-py3-none-any.whl" ubuntu@54.215.50.117:/home/ubuntu/wheels/
+
+pip install "C:\Users\Asus\PycharmProjects\core_utils\dist\core_utils-1.0.0-py3-none-any.whl" --force-reinstall
+pip install "C:\Users\Asus\PycharmProjects\custom_operators\dist\custom_operators-1.0.0-py3-none-any.whl" --force-reinstall
+
+sudo -i
+docker cp /home/ubuntu/core_utils-1.0.0-py3-none-any.whl 283b236bb652:/opt/airflow/
+docker cp /home/ubuntu/custom_operators-1.0.0-py3-none-any.whl 283b236bb652:/opt/airflow/
+docker cp /home/ubuntu/csse_covid_19_daily_reports_dag.py 283b236bb652:/opt/airflow/dags/
+docker cp /home/ubuntu/dbt_snowflake/ 931593c29b54:/opt/
+
+ docker exec -it c96aaad646be bash
+pip install /home/ubuntu/core_utils-1.0.0-py3-none-any.whl
+pip install /home/ubuntu/custom_operators-1.0.0-py3-none-any.whl
+
+
+
+ssh -i ./Downloads/rposam-devops-kp.pem ubuntu@54.215.50.117
+sudo -i
+# Docker setup on ubuntu 22.04
+
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo docker run hello-world
+
+scp -i ./Downloads/rposam-devops-kp.pem -r "C:\Users\Asus\PycharmProjects\config_generator_app\dags" ubuntu@54.215.50.117:/home/ubuntu/
+scp -i ./Downloads/rposam-devops-kp.pem -r "C:\Users\Asus\PycharmProjects\config_generator_app\wheels" ubuntu@54.215.50.117:/home/ubuntu/
+
+scp -i ./Downloads/rposam-devops-kp.pem -r ./PycharmProjects/dbt_snowflake/ ubuntu@54.215.50.117:/home/ubuntu/
+
+
+
+docker cp "C:\Users\Asus\PycharmProjects\custom_operators\dist\custom_operators-1.0.0-py3-none-any.whl" 9c68ae39895b:/opt/airflow/
+
+docker cp ./PycharmProjects/dbt_snowflake/  9c68ae39895b:/opt/
+
+python /opt/dbt_snowflake/generate_models.py \
+  --bucket_name "rposam-devops-airflow" \
+  --configs_path "dataset_configs/dev/" \
+  --run_date "2021-01-08" \
+  --mode "airflow" \
+  --force_download "true" \
+  --s3_conn_id "S3_CONN_ID" \
+  --snowflake_conn_id "SNOWFLAKE_CONN_ID" \
+  --dataset_name "csse_covid_19_daily_reports" \
+  --dbt_command "cd dbt && dbt run --select tag:csse_covid_19_daily_reports --vars \"{'run_date': '2021-01-08'}\""

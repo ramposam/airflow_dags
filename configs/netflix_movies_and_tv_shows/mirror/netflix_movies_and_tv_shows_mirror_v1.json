@@ -1,0 +1,38 @@
+{
+    "table_name": "T_ML_NETFLIX_MOVIES_AND_TV_SHOWS",
+    "table_schema": {
+        "TITLE": "STRING",
+        "TYPE": "STRING",
+        "GENRE": "STRING",
+        "RELEASE_YEAR": "STRING",
+        "RATING": "STRING",
+        "DURATION": "STRING",
+        "COUNTRY": "STRING",
+        "file_date": "TIMESTAMP",
+        "filename": "STRING",
+        "file_row_number": "STRING",
+        "file_last_modified": "TIMESTAMP",
+        "CREATED_DTS": "TIMESTAMP",
+        "CREATED_BY": "STRING"
+    },
+    "unique_keys": [
+        "TITLE"
+    ],
+    "file_format_params": {
+        "delimiter": ",",
+        "skip_header": 1,
+        "compressed": true
+    },
+    "file_schema": {
+        "TITLE": "STRING",
+        "TYPE": "STRING",
+        "GENRE": "STRING",
+        "RELEASE_YEAR": "STRING",
+        "RATING": "STRING",
+        "DURATION": "STRING",
+        "COUNTRY": "STRING"
+    },
+    "file_name_pattern": "Netflix_Movies_and_TV_Shows.csv",
+    "file_path": "datasets",
+    "datetime_pattern": ""
+}

@@ -1,0 +1,32 @@
+{
+    "table_name": "T_STG_NETFLIX_MOVIES_AND_TV_SHOWS",
+    "table_schema": {
+        "TITLE": "STRING",
+        "TYPE": "STRING",
+        "GENRE": "STRING",
+        "RELEASE_YEAR": "NUMBER",
+        "RATING": "STRING",
+        "DURATION": "STRING",
+        "COUNTRY": "STRING",
+        "CREATED_DTS": "TIMESTAMP",
+        "CREATED_BY": "STRING",
+        "UPDATED_DTS": "TIMESTAMP",
+        "UPDATED_BY": "STRING",
+        "ACTIVE_FL": "STRING",
+        "EFFECTIVE_START_DATE": "TIMESTAMP",
+        "EFFECTIVE_END_DATE": "TIMESTAMP",
+        "UNIQUE_HASH_ID": "STRING",
+        "ROW_HASH_ID": "STRING"
+    },
+    "unique_keys": [
+        "TITLE"
+    ],
+    "transformations": [
+        {
+            "type": "select",
+            "columns": [
+                "*"
+            ]
+        }
+    ]
+}
