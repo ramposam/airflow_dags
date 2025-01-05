@@ -19,7 +19,17 @@ docker cp /home/ubuntu/dbt_snowflake/ 931593c29b54:/opt/
 pip install /home/ubuntu/core_utils-1.0.0-py3-none-any.whl
 pip install /home/ubuntu/custom_operators-1.0.0-py3-none-any.whl
 
+# Connect to a docker container as airflow user(default) from gitbash
+winpty docker exec -it 931593c29b54 bash
 
+# Connect to a docker container as root user from gitbash
+winpty docker exec -it -u root 931593c29b54 bash
+
+# Connect to a docker container as airflow user(default)  from linux/ubuntu/powershell
+docker exec -it 931593c29b54 bash
+
+# Connect to a docker container as root user from linux/ubuntu/powershell
+docker exec -it -u root 931593c29b54 bash
 
 ssh -i ./Downloads/rposam-devops-kp.pem ubuntu@54.215.50.117
 sudo -i
@@ -46,7 +56,6 @@ scp -i ./Downloads/rposam-devops-kp.pem -r "C:\Users\Asus\PycharmProjects\config
 scp -i ./Downloads/rposam-devops-kp.pem -r "C:\Users\Asus\PycharmProjects\config_generator_app\wheels" ubuntu@54.215.50.117:/home/ubuntu/
 
 scp -i ./Downloads/rposam-devops-kp.pem -r ./PycharmProjects/dbt_snowflake/ ubuntu@54.215.50.117:/home/ubuntu/
-
 
 
 docker cp "C:\Users\Asus\PycharmProjects\custom_operators\dist\custom_operators-1.0.0-py3-none-any.whl" 9c68ae39895b:/opt/airflow/
