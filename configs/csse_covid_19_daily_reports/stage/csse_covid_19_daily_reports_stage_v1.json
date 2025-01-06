@@ -1,0 +1,42 @@
+{
+    "table_name": "T_STG_CSSE_COVID_19_DAILY_REPORTS",
+    "table_schema": {
+        "FIPS": "FLOAT",
+        "ADMIN2": "STRING",
+        "PROVINCE_STATE": "STRING",
+        "COUNTRY_REGION": "STRING",
+        "LAST_UPDATE": "STRING",
+        "LAT": "FLOAT",
+        "LONG_": "FLOAT",
+        "CONFIRMED": "NUMBER",
+        "DEATHS": "NUMBER",
+        "RECOVERED": "NUMBER",
+        "ACTIVE": "NUMBER",
+        "COMBINED_KEY": "STRING",
+        "INCIDENT_RATE": "FLOAT",
+        "CASE_FATALITY_RATIO": "FLOAT",
+        "CREATED_DTS": "TIMESTAMP",
+        "CREATED_BY": "STRING",
+        "UPDATED_DTS": "TIMESTAMP",
+        "UPDATED_BY": "STRING",
+        "ACTIVE_FL": "STRING",
+        "EFFECTIVE_START_DATE": "TIMESTAMP",
+        "EFFECTIVE_END_DATE": "TIMESTAMP",
+        "UNIQUE_HASH_ID": "STRING",
+        "ROW_HASH_ID": "STRING"
+    },
+    "unique_keys": [
+        "FIPS",
+        "ADMIN2",
+        "PROVINCE_STATE",
+        "COUNTRY_REGION"
+    ],
+    "transformations": [
+        {
+            "type": "select",
+            "columns": [
+                "*"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "table_name": "T_ML_CSSE_COVID_19_DAILY_REPORTS",
+    "table_schema": {
+        "FIPS": "STRING",
+        "ADMIN2": "STRING",
+        "PROVINCE_STATE": "STRING",
+        "COUNTRY_REGION": "STRING",
+        "LAST_UPDATE": "STRING",
+        "LAT": "STRING",
+        "LONG_": "STRING",
+        "CONFIRMED": "STRING",
+        "DEATHS": "STRING",
+        "RECOVERED": "STRING",
+        "ACTIVE": "STRING",
+        "COMBINED_KEY": "STRING",
+        "INCIDENT_RATE": "STRING",
+        "CASE_FATALITY_RATIO": "STRING",
+        "file_date": "TIMESTAMP",
+        "filename": "STRING",
+        "file_row_number": "STRING",
+        "file_last_modified": "TIMESTAMP",
+        "CREATED_DTS": "TIMESTAMP",
+        "CREATED_BY": "STRING"
+    },
+    "unique_keys": [
+        "FIPS",
+        "ADMIN2",
+        "PROVINCE_STATE",
+        "COUNTRY_REGION"
+    ],
+    "file_format_params": {
+        "delimiter": ",",
+        "skip_header": 1,
+        "compressed": true
+    },
+    "file_schema": {
+        "FIPS": "STRING",
+        "ADMIN2": "STRING",
+        "PROVINCE_STATE": "STRING",
+        "COUNTRY_REGION": "STRING",
+        "LAST_UPDATE": "STRING",
+        "LAT": "STRING",
+        "LONG_": "STRING",
+        "CONFIRMED": "STRING",
+        "DEATHS": "STRING",
+        "RECOVERED": "STRING",
+        "ACTIVE": "STRING",
+        "COMBINED_KEY": "STRING",
+        "INCIDENT_RATE": "STRING",
+        "CASE_FATALITY_RATIO": "STRING"
+    },
+    "file_name_pattern": "{datetime_pattern}.csv",
+    "file_path": "datasets/csse_covid_19_daily_reports",
+    "datetime_pattern": "MM-DD-YYYY"
+}
