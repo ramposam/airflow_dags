@@ -1,0 +1,42 @@
+{
+    "table_name": "T_STG_CSSE_COVID_19_DAILY_REPORTS_SNOWFLAKE",
+    "table_schema": {
+        "FIPS": "FLOAT",
+        "ADMIN2": "TEXT",
+        "PROVINCE_STATE": "TEXT",
+        "COUNTRY_REGION": "TEXT",
+        "LAST_UPDATE": "TEXT",
+        "LAT": "FLOAT",
+        "LONG_": "FLOAT",
+        "CONFIRMED": "NUMBER",
+        "DEATHS": "NUMBER",
+        "RECOVERED": "FLOAT",
+        "ACTIVE": "FLOAT",
+        "COMBINED_KEY": "TEXT",
+        "INCIDENT_RATE": "FLOAT",
+        "CASE_FATALITY_RATIO": "FLOAT",
+        "CREATED_DTS": "TIMESTAMP",
+        "CREATED_BY": "TEXT",
+        "UPDATED_DTS": "TIMESTAMP",
+        "UPDATED_BY": "TEXT",
+        "UNIQUE_HASH_ID": "TEXT",
+        "ROW_HASH_ID": "TEXT",
+        "ACTIVE_FL": "TEXT",
+        "EFFECTIVE_START_DATE": "TIMESTAMP",
+        "EFFECTIVE_END_DATE": "TIMESTAMP"
+    },
+    "unique_keys": [
+        "FIPS",
+        "ADMIN2",
+        "PROVINCE_STATE",
+        "COUNTRY_REGION"
+    ],
+    "transformations": [
+        {
+            "type": "select",
+            "columns": [
+                "*"
+            ]
+        }
+    ]
+}

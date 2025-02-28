@@ -1,0 +1,27 @@
+{
+    "dataset_name": "csse_covid_19_daily_reports_postgres",
+    "snowflake_stage_name": "",
+    "bucket": "rposam-etl-source-datasets-s3",
+    "tasks": [
+        "acq_task",
+        "download_task",
+        "postgres_schema_check_task",
+        "copy_to_postgres_task",
+        "postgres_file_mirror_data_check_task",
+        "postgres_mirror_task",
+        "postgres_stage_task"
+    ],
+    "mirror_layer": {
+        "database": "COMMON_DB",
+        "schema": "MIRROR"
+    },
+    "stage_layer": {
+        "database": "COMMON_DB",
+        "schema": "STAGE"
+    },
+    "s3_connection_id": "S3_CONN_ID",
+    "db_conn_id": "POSTGRES_CONN_ID",
+    "start_date": "2021,1,1",
+    "load_historical_data": true,
+    "schedule_interval": "0 23 * * 1-5"
+}

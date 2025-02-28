@@ -1,0 +1,53 @@
+{
+    "table_name": "T_ML_CSSE_COVID_19_DAILY_REPORTS_POSTGRES",
+    "table_schema": {
+        "FIPS": "TEXT",
+        "ADMIN2": "TEXT",
+        "PROVINCE_STATE": "TEXT",
+        "COUNTRY_REGION": "TEXT",
+        "LAST_UPDATE": "TEXT",
+        "LAT": "TEXT",
+        "LONG_": "TEXT",
+        "CONFIRMED": "TEXT",
+        "DEATHS": "TEXT",
+        "RECOVERED": "TEXT",
+        "ACTIVE": "TEXT",
+        "COMBINED_KEY": "TEXT",
+        "INCIDENT_RATE": "TEXT",
+        "CASE_FATALITY_RATIO": "TEXT",
+        "FILE_DATE": "TIMESTAMP",
+        "FILE_NAME": "TEXT",
+        "CREATED_DTS": "TIMESTAMP",
+        "CREATED_BY": "TEXT"
+    },
+    "unique_keys": [
+        "FIPS",
+        "ADMIN2",
+        "PROVINCE_STATE",
+        "COUNTRY_REGION"
+    ],
+    "file_format_params": {
+        "delimiter": ",",
+        "skip_header": 1,
+        "compressed": true
+    },
+    "file_schema": {
+        "FIPS": "TEXT",
+        "ADMIN2": "TEXT",
+        "PROVINCE_STATE": "TEXT",
+        "COUNTRY_REGION": "TEXT",
+        "LAST_UPDATE": "TEXT",
+        "LAT": "TEXT",
+        "LONG_": "TEXT",
+        "CONFIRMED": "TEXT",
+        "DEATHS": "TEXT",
+        "RECOVERED": "TEXT",
+        "ACTIVE": "TEXT",
+        "COMBINED_KEY": "TEXT",
+        "INCIDENT_RATE": "TEXT",
+        "CASE_FATALITY_RATIO": "TEXT"
+    },
+    "file_name_pattern": "{datetime_pattern}.csv",
+    "file_path": "datasets/csse_covid_19_daily_reports",
+    "datetime_pattern": "MM-DD-YYYY"
+}
