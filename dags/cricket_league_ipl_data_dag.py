@@ -24,11 +24,11 @@ default_args = {
 
 # Define the DAG 
 with DAG(
-    dag_id="csse_covid_19_daily_reports_dag",
+    dag_id="cricket_league_ipl_data_dag",
     default_args=default_args,
     description="A simple DAG with a Data ingestion",
-    schedule="0 23 * * 1-5",  # No schedule, triggered manually
-    start_date=datetime(2021,1,1),
+    schedule="@yearly",  # No schedule, triggered manually
+    start_date=datetime(2021,3,1),
     max_active_runs=1 ,
     catchup=True,
         ) as dag:
@@ -46,30 +46,30 @@ with DAG(
         
          # Task 1: Using the AcquisitionOperator
         acq_task = AcquisitionOperator(
-            task_id="check_file_present",
-            s3_conn_id=None,
-            bucket_name=None,
-            dataset_dir=r"/opt/airflow/datasets/csse_covid_19_data/csse_covid_19_daily_reports",
-            file_pattern="{datetime_pattern}.csv",
-            datetime_pattern="%m-%d-%Y"
+            task_id="check_file_present_on_s3",
+            s3_conn_id="S3_CONN_ID",
+            bucket_name="aws-s3-etl-pipeline-src-bucket",
+            dataset_dir=r"s3://aws-s3-etl-pipeline-src-bucket/dev/datasets/ipl",
+            file_pattern="ipl_{datetime_pattern}_deliveries.csv",
+            datetime_pattern="%Y"
         ) 
             
         download_task = DownloadOperator(
-            task_id="download_file_to_airflow_tmp_area",
-            s3_conn_id=None,
-            bucket_name=None,
-            dataset_dir=r"/opt/airflow/datasets/csse_covid_19_data/csse_covid_19_daily_reports",
-            file_name="{datetime_pattern}.csv",
-            datetime_pattern="%m-%d-%Y"
+            task_id="download_file_from_s3_to_airflow_tmp_area",
+            s3_conn_id="S3_CONN_ID",
+            bucket_name="aws-s3-etl-pipeline-src-bucket",
+            dataset_dir=r"s3://aws-s3-etl-pipeline-src-bucket/dev/datasets/ipl",
+            file_name="ipl_{datetime_pattern}_deliveries.csv",
+            datetime_pattern="%Y"
         )
             
         postgres_schema_check_task = FilePostgresTableSchemaCheckOperator(
             task_id="check_schema_of_config_n_received_file",
             db_conn_id="POSTGRES_CONN_ID",
-            s3_conn_id=None,
-            bucket_name=None,
-            configs_path="/opt/airflow/configs/",
-            dataset_name="csse_covid_19_daily_reports",
+            s3_conn_id="S3_CONN_ID",
+            bucket_name="aws-s3-etl-pipeline-src-bucket",
+            configs_path="dev/configs/",
+            dataset_name="cricket_league_ipl_data",
             encoding="UTF-8"
         )
             
@@ -77,56 +77,56 @@ with DAG(
             task_id="copy_data_from_file_to_postgres",
             db_conn_id="POSTGRES_CONN_ID",
             encoding="UTF-8",            
-            table_name="ETL_PIPELINES_DB.BRONZE.T_ML_CSSE_COVID_19_DAILY_REPORTS_TR",
+            table_name="ETL_PIPELINES_DB.BRONZE.T_ML_CRICKET_LEAGUE_IPL_DATA_TR",
             file_format_params={'delimiter': ',', 'skip_header': 1, 'compressed': True},
-            datetime_pattern="MM-DD-YYYY"
+            datetime_pattern="YYYY"
         )
             
         postgres_file_mirror_data_check_task = FilePostgresTableDataCheckOperator(
             task_id="check_file_n_mirror_table_data",
             db_conn_id="POSTGRES_CONN_ID",
-            s3_conn_id=None,
-            bucket_name=None,
-            configs_path="/opt/airflow/configs/",
-            dataset_name="csse_covid_19_daily_reports",
+            s3_conn_id="S3_CONN_ID",
+            bucket_name="aws-s3-etl-pipeline-src-bucket",
+            configs_path="dev/configs/",
+            dataset_name="cricket_league_ipl_data",
             encoding="UTF-8",
-            table_name="ETL_PIPELINES_DB.BRONZE.T_ML_CSSE_COVID_19_DAILY_REPORTS_TR"
+            table_name="ETL_PIPELINES_DB.BRONZE.T_ML_CRICKET_LEAGUE_IPL_DATA_TR"
         )
             
         postgres_mirror_task = PostgresLoadToMirrorOperator(
             task_id="load_to_mirror_table",
-            s3_conn_id=None,
+            s3_conn_id="S3_CONN_ID",
             db_conn_id="POSTGRES_CONN_ID",
-            bucket_name=None,
-            configs_path="/opt/airflow/configs/",
-            dataset_name="csse_covid_19_daily_reports"
+            bucket_name="aws-s3-etl-pipeline-src-bucket",
+            configs_path="dev/configs/",
+            dataset_name="cricket_league_ipl_data"
         )
             
         postgres_mirror_tests_task = PostgresMirrorTestsOperator(
             task_id="mirror_data_tests",
-            s3_conn_id=None,
+            s3_conn_id="S3_CONN_ID",
             db_conn_id="POSTGRES_CONN_ID",
-            bucket_name=None,
-            configs_path="/opt/airflow/configs/",
-            dataset_name="csse_covid_19_daily_reports"
+            bucket_name="aws-s3-etl-pipeline-src-bucket",
+            configs_path="dev/configs/",
+            dataset_name="cricket_league_ipl_data"
         )
             
         postgres_stage_task = PostgresLoadToStageOperator(
             task_id="load_to_stage_table",
-            s3_conn_id=None,
+            s3_conn_id="S3_CONN_ID",
             db_conn_id="POSTGRES_CONN_ID",
-            bucket_name=None,
-            configs_path="/opt/airflow/configs/",
-            dataset_name="csse_covid_19_daily_reports"
+            bucket_name="aws-s3-etl-pipeline-src-bucket",
+            configs_path="dev/configs/",
+            dataset_name="cricket_league_ipl_data"
         )
             
         postgres_stage_tests_task = PostgresStageTestsOperator(
             task_id="stage_data_tests",
-            s3_conn_id=None,
+            s3_conn_id="S3_CONN_ID",
             db_conn_id="POSTGRES_CONN_ID",
-            bucket_name=None,
-            configs_path="/opt/airflow/configs/",
-            dataset_name="csse_covid_19_daily_reports"
+            bucket_name="aws-s3-etl-pipeline-src-bucket",
+            configs_path="dev/configs/",
+            dataset_name="cricket_league_ipl_data"
         )
               
         # Define task dependencies

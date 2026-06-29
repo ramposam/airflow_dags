@@ -1,13 +1,13 @@
 {
-    "table_name": "T_STG_NETFLIX_MOVIES_AND_TV_SHOWS",
+    "table_name": "T_STG_REVIEWS",
     "table_schema": {
-        "TITLE": "TEXT",
-        "TYPE": "TEXT",
-        "GENRE": "TEXT",
-        "RELEASE_YEAR": "NUMERIC",
-        "RATING": "TEXT",
-        "DURATION": "TEXT",
-        "COUNTRY": "TEXT",
+        "REVIEW_ID": "TEXT",
+        "ORDER_ID": "TEXT",
+        "PRODUCT_ID": "TEXT",
+        "USER_ID": "TEXT",
+        "RATING": "NUMERIC",
+        "REVIEW_TEXT": "TEXT",
+        "REVIEW_DATE": "TEXT",
         "CREATED_DTS": "TIMESTAMP",
         "CREATED_BY": "TEXT",
         "UPDATED_DTS": "TIMESTAMP",
@@ -19,7 +19,7 @@
         "EFFECTIVE_END_DATE": "TIMESTAMP"
     },
     "unique_keys": [
-        "TITLE"
+        "REVIEW_ID"
     ],
     "transformations": [
         {

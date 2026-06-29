@@ -1,0 +1,33 @@
+{
+    "table_name": "T_ML_ORDERS",
+    "table_schema": {
+        "ORDER_ID": "TEXT",
+        "USER_ID": "TEXT",
+        "ORDER_DATE": "TEXT",
+        "ORDER_STATUS": "TEXT",
+        "TOTAL_AMOUNT": "TEXT",
+        "FILE_DATE": "TIMESTAMP",
+        "FILE_NAME": "TEXT",
+        "CREATED_DTS": "TIMESTAMP",
+        "CREATED_BY": "TEXT"
+    },
+    "unique_keys": [
+        "ORDER_ID"
+    ],
+    "file_format_params": {
+        "delimiter": ",",
+        "skip_header": 1,
+        "compressed": true
+    },
+    "file_schema": {
+        "ORDER_ID": "TEXT",
+        "USER_ID": "TEXT",
+        "ORDER_DATE": "TEXT",
+        "ORDER_STATUS": "TEXT",
+        "TOTAL_AMOUNT": "TEXT"
+    },
+    "file_name_pattern": "orders.csv",
+    "file_path": "/opt/airflow/datasets/ecommerce_dataset",
+    "encoding": "UTF-8",
+    "datetime_pattern": ""
+}

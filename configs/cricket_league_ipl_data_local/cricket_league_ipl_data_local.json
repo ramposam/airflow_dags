@@ -1,5 +1,5 @@
 {
-    "dataset_name": "csse_covid_19_daily_reports",
+    "dataset_name": "cricket_league_ipl_data_local",
     "snowflake_stage_name": "",
     "bucket": null,
     "tasks": [
@@ -23,7 +23,7 @@
     },
     "s3_connection_id": "S3_CONN_ID",
     "db_conn_id": "POSTGRES_CONN_ID",
-    "start_date": "2021,1,1",
+    "start_date": "2021,6,1",
     "load_historical_data": true,
-    "schedule_interval": "0 23 * * 1-5"
+    "schedule_interval": "@yearly"
 }

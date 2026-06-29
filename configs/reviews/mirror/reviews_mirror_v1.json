@@ -1,0 +1,37 @@
+{
+    "table_name": "T_ML_REVIEWS",
+    "table_schema": {
+        "REVIEW_ID": "TEXT",
+        "ORDER_ID": "TEXT",
+        "PRODUCT_ID": "TEXT",
+        "USER_ID": "TEXT",
+        "RATING": "TEXT",
+        "REVIEW_TEXT": "TEXT",
+        "REVIEW_DATE": "TEXT",
+        "FILE_DATE": "TIMESTAMP",
+        "FILE_NAME": "TEXT",
+        "CREATED_DTS": "TIMESTAMP",
+        "CREATED_BY": "TEXT"
+    },
+    "unique_keys": [
+        "REVIEW_ID"
+    ],
+    "file_format_params": {
+        "delimiter": ",",
+        "skip_header": 1,
+        "compressed": true
+    },
+    "file_schema": {
+        "REVIEW_ID": "TEXT",
+        "ORDER_ID": "TEXT",
+        "PRODUCT_ID": "TEXT",
+        "USER_ID": "TEXT",
+        "RATING": "TEXT",
+        "REVIEW_TEXT": "TEXT",
+        "REVIEW_DATE": "TEXT"
+    },
+    "file_name_pattern": "reviews.csv",
+    "file_path": "/opt/airflow/datasets/ecommerce_dataset",
+    "encoding": "UTF-8",
+    "datetime_pattern": ""
+}

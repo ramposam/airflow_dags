@@ -1,5 +1,5 @@
 {
-    "dataset_name": "netflix_movies_and_tv_shows",
+    "dataset_name": "users",
     "versions": [
         {
             "version": "v1",

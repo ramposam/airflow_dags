@@ -1,13 +1,13 @@
 {
-    "table_name": "T_STG_NETFLIX_MOVIES_AND_TV_SHOWS",
+    "table_name": "T_STG_ORDER_ITEMS",
     "table_schema": {
-        "TITLE": "TEXT",
-        "TYPE": "TEXT",
-        "GENRE": "TEXT",
-        "RELEASE_YEAR": "NUMERIC",
-        "RATING": "TEXT",
-        "DURATION": "TEXT",
-        "COUNTRY": "TEXT",
+        "ORDER_ITEM_ID": "TEXT",
+        "ORDER_ID": "TEXT",
+        "PRODUCT_ID": "TEXT",
+        "USER_ID": "TEXT",
+        "QUANTITY": "NUMERIC",
+        "ITEM_PRICE": "DOUBLE PRECISION",
+        "ITEM_TOTAL": "DOUBLE PRECISION",
         "CREATED_DTS": "TIMESTAMP",
         "CREATED_BY": "TEXT",
         "UPDATED_DTS": "TIMESTAMP",
@@ -19,7 +19,7 @@
         "EFFECTIVE_END_DATE": "TIMESTAMP"
     },
     "unique_keys": [
-        "TITLE"
+        "ORDER_ITEM_ID"
     ],
     "transformations": [
         {

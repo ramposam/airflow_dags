@@ -1,0 +1,64 @@
+{
+    "table_name": "T_STG_CRICKET_LEAGUE_IPL_DATA",
+    "table_schema": {
+        "MATCH_ID": "NUMERIC",
+        "SEASON": "NUMERIC",
+        "MATCH_NO": "NUMERIC",
+        "DATE": "TEXT",
+        "VENUE": "TEXT",
+        "BATTING_TEAM": "TEXT",
+        "BOWLING_TEAM": "TEXT",
+        "INNINGS": "NUMERIC",
+        "OVER": "DOUBLE PRECISION",
+        "STRIKER": "TEXT",
+        "BOWLER": "TEXT",
+        "RUNS_OF_BAT": "NUMERIC",
+        "EXTRAS": "NUMERIC",
+        "WIDE": "NUMERIC",
+        "LEGBYES": "NUMERIC",
+        "BYES": "NUMERIC",
+        "NOBALLS": "NUMERIC",
+        "WICKET_TYPE": "TEXT",
+        "PLAYER_DISMISSED": "TEXT",
+        "FIELDER": "TEXT",
+        "CREATED_DTS": "TIMESTAMP",
+        "CREATED_BY": "TEXT",
+        "UPDATED_DTS": "TIMESTAMP",
+        "UPDATED_BY": "TEXT",
+        "UNIQUE_HASH_ID": "TEXT",
+        "ROW_HASH_ID": "TEXT",
+        "ACTIVE_FL": "TEXT",
+        "EFFECTIVE_START_DATE": "TIMESTAMP",
+        "EFFECTIVE_END_DATE": "TIMESTAMP"
+    },
+    "unique_keys": [
+        "MATCH_ID",
+        "SEASON",
+        "MATCH_NO",
+        "DATE",
+        "VENUE",
+        "BATTING_TEAM",
+        "BOWLING_TEAM",
+        "INNINGS",
+        "OVER",
+        "STRIKER",
+        "BOWLER",
+        "RUNS_OF_BAT",
+        "EXTRAS",
+        "WIDE",
+        "LEGBYES",
+        "BYES",
+        "NOBALLS",
+        "WICKET_TYPE",
+        "PLAYER_DISMISSED",
+        "FIELDER"
+    ],
+    "transformations": [
+        {
+            "type": "select",
+            "columns": [
+                "*"
+            ]
+        }
+    ]
+}

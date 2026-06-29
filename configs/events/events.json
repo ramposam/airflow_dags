@@ -1,5 +1,5 @@
 {
-    "dataset_name": "csse_covid_19_daily_reports",
+    "dataset_name": "events",
     "snowflake_stage_name": "",
     "bucket": null,
     "tasks": [
@@ -14,16 +14,16 @@
         "postgres_stage_tests_task"
     ],
     "mirror_layer": {
-        "database": "ETL_PIPELINES_DB",
+        "database": "ECOMMERCE_DB",
         "schema": "BRONZE"
     },
     "stage_layer": {
-        "database": "ETL_PIPELINES_DB",
+        "database": "ECOMMERCE_DB",
         "schema": "SILVER"
     },
     "s3_connection_id": "S3_CONN_ID",
     "db_conn_id": "POSTGRES_CONN_ID",
-    "start_date": "2021,1,1",
+    "start_date": "2026,6,1",
     "load_historical_data": true,
-    "schedule_interval": "0 23 * * 1-5"
+    "schedule_interval": "@once"
 }

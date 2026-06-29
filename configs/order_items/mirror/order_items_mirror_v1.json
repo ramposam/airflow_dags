@@ -1,0 +1,37 @@
+{
+    "table_name": "T_ML_ORDER_ITEMS",
+    "table_schema": {
+        "ORDER_ITEM_ID": "TEXT",
+        "ORDER_ID": "TEXT",
+        "PRODUCT_ID": "TEXT",
+        "USER_ID": "TEXT",
+        "QUANTITY": "TEXT",
+        "ITEM_PRICE": "TEXT",
+        "ITEM_TOTAL": "TEXT",
+        "FILE_DATE": "TIMESTAMP",
+        "FILE_NAME": "TEXT",
+        "CREATED_DTS": "TIMESTAMP",
+        "CREATED_BY": "TEXT"
+    },
+    "unique_keys": [
+        "ORDER_ITEM_ID"
+    ],
+    "file_format_params": {
+        "delimiter": ",",
+        "skip_header": 1,
+        "compressed": true
+    },
+    "file_schema": {
+        "ORDER_ITEM_ID": "TEXT",
+        "ORDER_ID": "TEXT",
+        "PRODUCT_ID": "TEXT",
+        "USER_ID": "TEXT",
+        "QUANTITY": "TEXT",
+        "ITEM_PRICE": "TEXT",
+        "ITEM_TOTAL": "TEXT"
+    },
+    "file_name_pattern": "order_items.csv",
+    "file_path": "/opt/airflow/datasets/ecommerce_dataset",
+    "encoding": "UTF-8",
+    "datetime_pattern": ""
+}
