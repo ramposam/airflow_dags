@@ -92,7 +92,9 @@
 
  CREATE STAGE IF NOT EXISTS MIRROR_DB.MIRROR.STG_NETFLIX_MOVIES_AND_TV_SHOWS_S3
   URL='s3://rposam-devops-airflow/datasets/'
-  CREDENTIALS=(AWS_KEY_ID='AWS_KEY_ID' AWS_SECRET_KEY='AWS_SECRET_KEY')
+  -- CREDENTIALS should be configured using Snowflake Storage Integration or environment variables
+  -- Do not hardcode AWS credentials. Use: CREDENTIALS=(AWS_KEY_ID='AWS_KEY_ID' AWS_SECRET_KEY='AWS_SECRET_KEY')
+  -- Or better: Use Snowflake Storage Integration for secure access
   ENCRYPTION=(TYPE='AWS_SSE_KMS' KMS_KEY_ID = 'aws/key');
   
  CREATE OR REPLACE FILE FORMAT MIRROR_DB.MIRROR.FF_NETFLIX_MOVIES_AND_TV_SHOWS
